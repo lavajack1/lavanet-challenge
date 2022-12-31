@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proxy;
+
+// any service we want to proxy import them here
+import "cosmos/base/tendermint/v1beta1/query.proto";
+import "cosmos/bank/v1beta1/query.proto";
+
+option go_package = "internal/pb/proxy";
+
+service ProxyService {
+    // stream latest N blocks to client
+    rpc GetLatestBlocks (GetLatestBlocksRequest) returns (stream GetLatestBlocksResponse) {}
+}
+
+message GetLatestBlocksRequest {
+    int64 count = 1;
+}
+
+message GetLatestBlocksResponse {
+    int64 height = 1;
+    bytes hash = 2;
+}
