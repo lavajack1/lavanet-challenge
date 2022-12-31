@@ -1,6 +1,6 @@
 # Lavanet Challenge
 
-A gRPC server proxying requests to an Osmosis gRPC endpoint
+gRPC server proxying requests to an Osmosis gRPC endpoint
 
 ```bash
 # generate the protobuf files
